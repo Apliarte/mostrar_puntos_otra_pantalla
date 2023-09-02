@@ -7,9 +7,8 @@ import 'paginatres.dart';
 
 class HomePage extends StatefulWidget {
   final Puntos puntos;
-  final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
 
-  HomePage({required this.puntos});
+  HomePage({super.key, required this.puntos});
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -53,7 +52,18 @@ class _HomePageState extends State<HomePage> {
               onPressed: restarPunto,
               child: Text('Restar punto'),
             ),
-
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => PaginaUno(puntos: widget.puntos),
+                  ),
+                );
+              },
+              child: Text('Ir a Página Uno'),
+            ),
+            //
 //
             ElevatedButton(
               onPressed: () {
@@ -67,8 +77,6 @@ class _HomePageState extends State<HomePage> {
               child: Text('Ir a Página Dos'),
             ),
 
-//
-
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
@@ -81,18 +89,6 @@ class _HomePageState extends State<HomePage> {
               child: Text('Ir a Página Tres'),
             ),
 
-            //
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => PaginaUno(puntos: widget.puntos),
-                  ),
-                );
-              },
-              child: Text('Ir a Página Uno'),
-            ),
             //
             // Agrega botones para las otras páginas de manera similar
           ],
