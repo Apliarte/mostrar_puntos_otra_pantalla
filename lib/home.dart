@@ -6,8 +6,8 @@ import 'paginados.dart';
 import 'paginatres.dart';
 
 class HomePage extends StatefulWidget {
+  final Puntos puntos;
   final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
-  late Future<int> puntos;
 
   HomePage({required this.puntos});
 
